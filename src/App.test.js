@@ -1,4 +1,4 @@
-import { render, screen, within, act } from '@testing-library/react';
+import { render, screen, within, act, prettyDOM, logRoles } from '@testing-library/react';
 import App from './App';
 import userEvent from '@testing-library/user-event';
 import User from './User';
@@ -95,9 +95,30 @@ import User from './User';
 //   expect(screen.getByText("Vidit")).toBeInTheDocument();
 // })
 
-test("Props Testing",()=>{
-  const data = "Vidit";
-  render(<User name={data} />);
-  const user = screen.getByText(`Username : Vidit`);
-  expect(user).toBeInTheDocument();
-})
+// test("Props Testing",()=>{
+//   const data = "Vidit";
+//   render(<User name={data} />);
+//   const user = screen.getByText(`Username : Vidit`);
+//   expect(user).toBeInTheDocument();
+// })
+
+// test("functional props testing",async()=>{
+//   const testfunction = jest.fn();//invoke function
+//   render(<App testfunction={testfunction} />);
+//   const btn = screen.getByRole("button");
+//   await userEvent.click(btn);
+//   expect(testfunction).toBeCalled();
+// })
+
+// test("testing component",()=>{
+//   const {container,debug} = render(<App />);
+//   // const el = screen.getByText("Heading 2");
+//   // expect(el).toBeInTheDocument();
+//   // console.log(container);
+//   // console.log(prettyDOM(container));
+//   // debug();
+//   logRoles(container);
+// })
+
+// Run Below in terminal
+// DEBUG_PRINT_LIMIT=1000 npm test

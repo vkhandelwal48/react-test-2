@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import './App.css';
 import User from './User';
 
-function App() {
+function App({testfunction}) {
   // let login=false;
   // const [data,setData]=useState(false);
   // useEffect(()=>{
@@ -13,6 +13,7 @@ function App() {
 
   //const [data,setData]=useState("");
   const [name,setName]=useState("");
+  const [count,setCounter]=useState(0);
   return (
     <div className="App">
       {/*
@@ -57,10 +58,21 @@ function App() {
       Case 8 and 9
       <h1>onChange Event Testing</h1>
       <h1>{name}</h1>
-      <input type="text" onChange={(e)=>setName(e.target.value)} placeholder='enter name' />*/}
+      <input type="text" onChange={(e)=>setName(e.target.value)} placeholder='enter name' />
 
+      Case 10
       <h1>Props Testing</h1>
       <User name="Vidit"/>
+
+      Case 11
+      <h1>Functional Props Testing and Mocking</h1>
+      <button onClick={testfunction}>Click</button>
+
+      Case 12
+      <button onClick={()=>setCounter(count=>count+1)}>Click to increase : {count}</button>
+      <h2>Heading 2</h2>
+      <h5>Heading 5</h5>
+      <input />*/}
     </div>
   );
 }
