@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import './App.css';
-import User from './User';
+// import User from './User';
 
 function App({testfunction}) {
   // let login=false;
@@ -11,9 +11,21 @@ function App({testfunction}) {
   //   },3000);
   // },[])
 
-  //const [data,setData]=useState("");
-  const [name,setName]=useState("");
-  const [count,setCounter]=useState(0);
+  // const [data,setData]=useState("");
+  // const [name,setName]=useState("");
+  // const [count,setCounter]=useState(0);
+  const [data,setData]=useState([]);
+
+  useEffect(()=>{
+    getData();
+  },[])
+  const getData=async()=>{
+    let result = await fetch("https://jsonplaceholder.typicode.com/users");
+    result = await result.json();
+    setData(result);
+  }
+
+  console.log(data);
   return (
     <div className="App">
       {/*
@@ -73,6 +85,11 @@ function App({testfunction}) {
       <h2>Heading 2</h2>
       <h5>Heading 5</h5>
       <input />*/}
+
+      <h1>API Call</h1>
+      {
+        data.map((item)=><li key={item.id}>{item.name}</li>)
+      }
     </div>
   );
 }
